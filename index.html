@@ -1,14 +1,41 @@
 <script>
 let choices = ["Rock", "Paper", "Scissors"]
     //Pics random number between 1 and 3
-function computerPlay(){
-    return choices[Math.floor(Math.random()* choices.length)]
- }
- //
-let selection = prompt("Choose Rock Paper or Scissor ");
+let computerPlay = choices[Math.floor(Math.random()* choices.length)];
+ //Capatalizes first letter
+let selection = prompt("Choose Rock Paper or Scissors ");
 let playerSelection = selection.charAt(0).toUpperCase() + selection.slice(1).toLowerCase(); 
 
-
+//if statements for game
+if (playerSelection === 'Rock'){
+    if (computerPlay === 'Scissors'){
+        alert("Rock beats scissors you win!");
+    }else if (computerPlay === 'Paper'){
+        alert("Paper covers rock, computer wins!");
+    }else {
+        alert("Tie!");
+       }
+}
+if (playerSelection === 'Paper'){
+    if (computerPlay === 'Scissors'){
+        alert("Scissors beats Paper, Computer Wins!");
+    }else if (computerPlay === 'Rock'){
+        alert("Paper covers rock, you win!");
+    }else {
+        alert("Tie!");
+       }
+}
+if (playerSelection === 'Scissors'){
+    if (computerPlay === 'Paper'){
+        alert("Scissors cut Paper, you win!");
+    }else if (computerPlay === 'Rock'){
+        alert("Rock beats Scissors, Computer Wins!");
+    }else {
+        alert("Tie!");
+       }
+}
+console.log(playerSelection);
+console.log(computerPlay);
 
 </script>  
     </body>   
