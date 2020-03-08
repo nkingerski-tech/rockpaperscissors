@@ -2,9 +2,12 @@
 let choices = ["Rock", "Paper", "Scissors"]
     //Pics random number between 1 and 3
 let computerPlay = choices[Math.floor(Math.random()* choices.length)];
- //Capatalizes first letter
-let selection = prompt("Choose Rock Paper or Scissors ");
-let playerSelection = selection.charAt(0).toUpperCase() + selection.slice(1).toLowerCase(); 
+
+
+let userSelection = prompt("Choose Rock Paper or Scissors ");
+    
+
+let playerSelection = userSelection.charAt(0).toUpperCase() + userSelection.slice(1).toLowerCase(); 
 
 //if statements for game
 if (playerSelection === 'Rock'){
@@ -34,8 +37,6 @@ if (playerSelection === 'Scissors'){
         alert("Tie!");
        }
 }
-console.log(playerSelection);
-console.log(computerPlay);
 
 </script>  
     </body>   
