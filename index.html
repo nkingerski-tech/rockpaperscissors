@@ -1,42 +1,45 @@
 <script>
-let choices = ["Rock", "Paper", "Scissors"]
-    //Pics random number between 1 and 3
-let computerPlay = choices[Math.floor(Math.random()* choices.length)];
+function cpuPlay(){
+    let choices = ["Rock", "Paper", "Scissors"];
+    return choices[Math.floor(Math.random()* choices.length)];
+}
 
 
-let userSelection = prompt("Choose Rock Paper or Scissors ");
-    
+function userSelection(){
+     let userInput = prompt("Choose Rock Paper or Scissors ");
+     return userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase(); 
+}
 
-let playerSelection = userSelection.charAt(0).toUpperCase() + userSelection.slice(1).toLowerCase(); 
 
 //if statements for game
-if (playerSelection === 'Rock'){
-    if (computerPlay === 'Scissors'){
-        alert("Rock beats scissors you win!");
-    }else if (computerPlay === 'Paper'){
-        alert("Paper covers rock, computer wins!");
-    }else {
-        alert("Tie!");
-       }
-}
-if (playerSelection === 'Paper'){
-    if (computerPlay === 'Scissors'){
-        alert("Scissors beats Paper, Computer Wins!");
-    }else if (computerPlay === 'Rock'){
-        alert("Paper covers rock, you win!");
-    }else {
-        alert("Tie!");
-       }
-}
-if (playerSelection === 'Scissors'){
-    if (computerPlay === 'Paper'){
-        alert("Scissors cut Paper, you win!");
-    }else if (computerPlay === 'Rock'){
-        alert("Rock beats Scissors, Computer Wins!");
-    }else {
-        alert("Tie!");
-       }
-}
+function playRound(player, computer){
+    if (player == computer){
+        return `Both players picked ${player}, tie game`;
+    }else if((player == "Rock" && computer == "scissors") || +
+        (player == "Paper" && computer == "Rock") || +
+        (player == "Scissors" && computer== "Paper")) {
+        return `You win! ${player} beats ${computer}!` + ++playerScore;
+        }else{
+            return `You lose! ${computer} beats ${player}`+ ++computerScore;
+        }
+    }
+    let playerScore = 0;
+    let computerScore = 0;
+    
+function game() {
+    let gameCounter = 0;
+    while (gameCounter < 20){
+        gameCounter ++
+        let score = playRound(userSelection(), cpuPlay())
+        console.log(score);
+        if(playerScore >= 3){
+            return 'Congratulations! You won!'
+        }else if (computerScore >=3){
+            return 'You lost. Better luck next time.'
+        }
+        }
+    
+    }
 
 </script>  
     </body>   
